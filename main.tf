@@ -12,6 +12,8 @@ provider "aws" {
   region = var.region
 }
 
+# Module Load Balancer
+
 module "elb-module" {
   source              = "./loadbalancer"
   user_pool_arn       = module.cognito-module.user_pool_arn    
@@ -25,6 +27,7 @@ module "elb-module" {
   arn_certificate     = var.arn_certificate
 }
 
+# Module Cognito
 
 module "cognito-module" {
   source                = "./cognito"

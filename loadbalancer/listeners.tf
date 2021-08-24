@@ -21,6 +21,8 @@ resource "aws_lb_listener" "listener443" {
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = var.arn_certificate
   default_action {
+
+    # The authentication will happen for any request
     type = "authenticate-cognito"
 
     authenticate_cognito {
